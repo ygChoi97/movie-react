@@ -66,7 +66,6 @@ function Item(props)
     return (
         <div>
             <img src={props.item.imagAddr} style={{width: '87%', height: 'auto'}} />
-            {/* {<h6>{props.item.name}</h6>} */}
         </div>
     )
 }

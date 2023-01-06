@@ -1,0 +1,64 @@
+.movie-thumbnail {
+    display: flex;
+    flex-direction: column;
+    /* justify-content: space-between; */
+    width: 225px;
+    height: 410px;
+}
+
+.movie-thumbnail .movie-lanking p {
+    text-align: center;
+    color: white;
+    background-color: #037B94;
+
+}
+
+.movie-thumbnail .movie-image img {
+    width: 225px;
+    height: 320px;
+    
+}
+
+.movie-thumbnail .movie-content {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    font-size: 16px;
+    height: 100px;
+}
+
+.movie-thumbnail .movie-content .movie_title{
+    font-size: 16px;
+    font-weight: bold;
+    overflow: hidden;
+    white-space: nowrap; 
+    text-overflow: ellipsis;
+    width : 194px;
+    margin-left: 8px;
+}
+
+.movie-thumbnail .movie-openday{
+    font-size: 14px;
+    /* background-color: blue; */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.movie-thumbnail .movie-openday span{
+    margin-bottom: 5px;
+}
+.movie-grade {
+    width: 23px;
+    height: 23px;
+    display: inline-block;
+    /* background-color: red; */
+    background-repeat: no-repeat;
+    background-image: url('https://img.megabox.co.kr/static/pc/images/common/txt/12_46x46.png');
+    background-size: 23px 23px;
+    
+}
+
+.movie-thumbnail .movie-content .movie_title{
+    /* margin-left: 35px; */
+}

@@ -1,14 +1,11 @@
-import React, {useState, useEffect} from 'react';
 import './css/main.css';
-import { List, Paper, Container } from '@mui/material';
+import { Paper, Container } from '@mui/material';
 import AddMovie from './components/AddMovie';
 import './App.css';
-import { BoyRounded } from '@mui/icons-material';
 
 const key = '1fa787f2afbefc67f678bb5455234cbb'; // 발급키
 const KOBIS_MOVIE_INFO_URL = 'http://www.kobis.or.kr/kobisopenapi/webservice/rest/movie/searchMovieInfo.json'; // 영화상세정보 API json 요청 URL
 const BASE_URL = 'http://localhost:8181/api/movie';  // 영화상세정보 백엔드 URL
-// const KOFIC_JSON = 'movieInfoResult.movieInfo'; // 영화상세정보 json 접두어
 function App() {
   
 
@@ -31,12 +28,9 @@ function App() {
       watchGradeNm: ''  // 관람등급
     };
     
-
     fetch(url)
     .then(response => response.json())
     .then(json => {
-      console.log(json);
-      
       reqjson.movieCd = json.movieInfoResult.movieInfo.movieCd;
       reqjson.movieNm = json.movieInfoResult.movieInfo.movieNm;
       reqjson.movieNmEn = json.movieInfoResult.movieInfo.movieNmEn;
@@ -45,37 +39,49 @@ function App() {
       reqjson.openDt = json.movieInfoResult.movieInfo.openDt;
 
       for(let i = 0; i < json.movieInfoResult.movieInfo.nations.length; i++) {
-          reqjson.nations = reqjson.nations.concat(json.movieInfoResult.movieInfo.nations[i].nationNm, '|');
+          if(i === json.movieInfoResult.movieInfo.nations.length-1)
+            reqjson.nations = reqjson.nations.concat(json.movieInfoResult.movieInfo.nations[i].nationNm);  
+          else
+            reqjson.nations = reqjson.nations.concat(json.movieInfoResult.movieInfo.nations[i].nationNm, '|');  
+          
       }
-       console.log(reqjson.nations);
 
       for(let i = 0; i < json.movieInfoResult.movieInfo.genres.length; i++) {
+        if(i === json.movieInfoResult.movieInfo.genres.length-1)
+          reqjson.genres = reqjson.genres.concat(json.movieInfoResult.movieInfo.genres[i].genreNm);  
+        else
           reqjson.genres = reqjson.genres.concat(json.movieInfoResult.movieInfo.genres[i].genreNm, '|');
+          
       }
-      console.log(reqjson.genres);
 
       for(let i = 0; i < json.movieInfoResult.movieInfo.directors.length; i++) {
+        if(i === json.movieInfoResult.movieInfo.directors.length-1)
+          reqjson.directors = reqjson.directors.concat(json.movieInfoResult.movieInfo.directors[i].peopleNm);  
+        else
           reqjson.directors = reqjson.directors.concat(json.movieInfoResult.movieInfo.directors[i].peopleNm, '|');
       }
-      console.log(reqjson.directors);
 
       for(let i = 0; i < json.movieInfoResult.movieInfo.actors.length; i++) {
+        if(i === json.movieInfoResult.movieInfo.actors.length-1)  
+          reqjson.actors = reqjson.actors.concat(json.movieInfoResult.movieInfo.actors[i].peopleNm);
+        else
           reqjson.actors = reqjson.actors.concat(json.movieInfoResult.movieInfo.actors[i].peopleNm, '|');
+        
       }
-      console.log(reqjson.actors);
 
       for(let i = 0; i < json.movieInfoResult.movieInfo.showTypes.length; i++) {
+        if(i === json.movieInfoResult.movieInfo.showTypes.length-1)
+          reqjson.showTypes = reqjson.showTypes.concat(json.movieInfoResult.movieInfo.showTypes[i].showTypeNm);
+        else
           reqjson.showTypes = reqjson.showTypes.concat(json.movieInfoResult.movieInfo.showTypes[i].showTypeNm, '|');
       }
-      console.log(reqjson.showTypes);
-
       
-      
-      reqjson.watchGradeNm = json.movieInfoResult.movieInfo.audits.watchGradeNm;
-      
-      console.log('movieNm :' + reqjson.movieNm);
-
-      console.log('genres :' + reqjson.genres);
+      if(json.movieInfoResult.movieInfo.audits.length > 1) {
+        reqjson.watchGradeNm = json.movieInfoResult.movieInfo.audits[json.movieInfoResult.movieInfo.audits.length-2].watchGradeNm;
+      }
+      else {
+        reqjson.watchGradeNm = json.movieInfoResult.movieInfo.audits[json.movieInfoResult.movieInfo.audits.length-1].watchGradeNm;
+      }
       
       if(json.movieInfoResult.movieInfo.movieCd !== null) {
         console.log('reqjson: ' + reqjson);
