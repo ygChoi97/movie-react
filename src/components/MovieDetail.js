@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { NavLink, Route, Routes, useSearchParams } from 'react-router-dom';
-import "../css/moviedetail.css";
-import "../css/nav.css";
 import { BASE_URL } from './BoxOffice';
 import MovieDetailCrew from './MovieDetailCrew';
 import MovieDetailMain from './MovieDetailMain';
+import "../css/moviedetail.css";
+import "../css/nav.css";
 
 const MovieDetail = () => {
 
@@ -99,8 +99,8 @@ const MovieDetail = () => {
             <hr/>
             
             <Routes>
-                <Route path="/" element={<MovieDetailMain/>} />
-                <Route path="/crew" element={<MovieDetailCrew/>} />
+                <Route path="/" element={<MovieDetailMain key={movie.movieCd} movie={movie}/>} />
+                <Route path="/crew" element={<MovieDetailCrew key={movie.movieCd} movie={movie}/>} />
         </Routes>
         </>
     );

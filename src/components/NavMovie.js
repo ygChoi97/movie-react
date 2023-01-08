@@ -8,6 +8,7 @@ import BoxOffice from './BoxOffice';
 import CarouselEx from'./CarouselEx';
 import { fontSize } from '@mui/system';
 import SlickEx from './SlickEx';
+import "../css/nav.css";
 
 export default function NavMovie() {
   const [value, setValue] = React.useState(0);

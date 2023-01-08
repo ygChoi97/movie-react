@@ -10,10 +10,16 @@ export default function BoxOffice() {
         
     ]);
     console.log("박스오피스 진입");
-    const movieListItem = movieList.map(movie => 
-        <MovieThumbnail key={movie.movieCd} movie={movie} />
-    ); 
+
+    // const movieListItem = movieList.map(movie => 
+    //     <MovieThumbnail key={movie.movieCd} movie={movie} />
+    // ); 
     
+    const movieListItem = movieList.map(function(movie) {
+      if(movie.screeningType === 0)
+        return <MovieThumbnail key={movie.movieCd} movie={movie} />
+    });
+
     useEffect(() => {
         fetch(BASE_URL)
         .then(res => res.json())

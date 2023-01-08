@@ -1,9 +1,14 @@
 import React from "react";
 
-const MovieDetailCrew = () => {
+const MovieDetailCrew = ({movie}) => {
     return(
-        <div>
-            영화 배우/제작진 페이지입니다.
+        <div style={{}}>
+            <div style={{marginBottom:'20px'}}>
+                감독 : {movie.directors}
+            </div>
+            <div>
+                배우 : {movie.actors}
+            </div>
         </div>
     );
 }

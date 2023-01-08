@@ -1,10 +1,12 @@
 import React from "react";
 
-const MovieDetailMain = () => {
+const MovieDetailMain = ({movie}) => {
     return(
-        <div>
-            영화 줄거리페이지입니다.
-        </div>
+        <>
+            <div>
+                {movie.plot}
+            </div>
+        </>
     );
 }
 

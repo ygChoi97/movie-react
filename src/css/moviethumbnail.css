@@ -10,6 +10,7 @@
     text-align: center;
     color: white;
     background-color: #037B94;
+    margin-bottom: 3px;
 
 }
 
@@ -48,7 +49,7 @@
 .movie-thumbnail .movie-openday span{
     margin-bottom: 5px;
 }
-.movie-grade {
+.movie-grade12 {
     width: 23px;
     height: 23px;
     display: inline-block;
@@ -59,6 +60,24 @@
     
 }
 
-.movie-thumbnail .movie-content .movie_title{
-    /* margin-left: 35px; */
+.movie-grade15 {
+    width: 23px;
+    height: 23px;
+    display: inline-block;
+    /* background-color: red; */
+    background-repeat: no-repeat;
+    background-image: url('https://img.megabox.co.kr/static/pc/images/common/txt/15_46x46.png');
+    background-size: 23px 23px;
+    
+}
+
+.movie-gradeAll {
+    width: 23px;
+    height: 23px;
+    display: inline-block;
+    /* background-color: red; */
+    background-repeat: no-repeat;
+    background-image: url('https://img.megabox.co.kr/static/pc/images/common/txt/ALL_46x46.png');
+    background-size: 23px 23px;
+    
 }
