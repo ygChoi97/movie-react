@@ -32,6 +32,7 @@ const Header = () => {
             <div className='nav_main'>
                 <nav id="nav1">
                     <ul>
+                        <NavLink to ="/"><li>HOME</li></NavLink>
                         <NavLink to ="/movie"><li>영화</li></NavLink>
                         <NavLink to ="/theater"><li>극장</li></NavLink>
                         <NavLink to ="/booking"><li>예매</li></NavLink>

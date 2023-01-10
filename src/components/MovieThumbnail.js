@@ -73,7 +73,35 @@ const MovieThumbnail = ({movie}) => {
                 </div>           
         </Grid>
 
+        : watchGradeNm.includes('18') || watchGradeNm.includes('청소년관람불가') ?
+        <Grid item lg={3} md={4} sm={6} xs={12}>
+            
+                <div className="movie-thumbnail">
+                    
+                    <div className="movie-lanking">
+                        <p>No. 1</p>
+                    </div>
+                    
+                    <div className="movie-image" >
+                        <Link to={`/movie-detail/?movieCd=${movieCd}`}>
+                            <img src={imgURL} alt={{movieNm}} />                                
+                        </Link>
+                    </div>
+                    
+                    <div className="movie-content">
+                        <span className='movie-grade18'></span> 
+                        <span className='movie_title'>{movieNm}</span>
+                    </div>
+                    <div className="movie-openday">
+                        <span>{openDt2} 개봉</span>
+                            <Button variant="contained" size="small" color="primary" onClick={bookingClickHandler}>예매</Button>
+                        
+                    </div>
+                </div>           
+        </Grid>
+
         :
+
         <Grid item lg={3} md={4} sm={6} xs={12}>
             
                 <div className="movie-thumbnail">
@@ -153,7 +181,35 @@ const MovieThumbnail = ({movie}) => {
                 </div>           
         </Grid>
 
+        : watchGradeNm.includes('18') || watchGradeNm.includes('청소년관람불가') ?
+        <Grid item lg={3} md={4} sm={6} xs={12}>
+            
+                <div className="movie-thumbnail">
+                    
+                    <div className="movie-lanking">
+                        <p>No. 1</p>
+                    </div>
+                    
+                    <div className="movie-image" >
+                        <Link to={`/movie-detail/?movieCd=${movieCd}`}>
+                            <img src={imgURL} alt={{movieNm}} />                                
+                        </Link>
+                    </div>
+                    
+                    <div className="movie-content">
+                        <span className='movie-grade18'></span> 
+                        <span className='movie_title'>{movieNm}</span>
+                    </div>
+                    <div className="movie-openday">
+                        <span>{openDt2} 개봉</span>
+                            <Button variant="contained" size="small" color="primary" disabled="true">개봉예정</Button>
+                        
+                    </div>
+                </div>           
+        </Grid>
+
         :
+
         <Grid item lg={3} md={4} sm={6} xs={12}>
             
                 <div className="movie-thumbnail">
@@ -179,6 +235,7 @@ const MovieThumbnail = ({movie}) => {
                     </div>
                 </div>           
         </Grid>
+
  
     );
 }

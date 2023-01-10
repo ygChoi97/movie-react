@@ -25,6 +25,7 @@ function App() {
       directors: '',    // 감독
       actors: '',       // 배우
       showTypes: '',    // 쇼타입 (디지털, 3D 디지털, 4D, IMAX, IMAX 3D)
+      companys:'',      // 참여 영화사
       watchGradeNm: ''  // 관람등급
     };
     
@@ -76,6 +77,18 @@ function App() {
           reqjson.showTypes = reqjson.showTypes.concat(json.movieInfoResult.movieInfo.showTypes[i].showTypeNm, '|');
       }
       
+      for(let i = 0; i < json.movieInfoResult.movieInfo.companys.length; i++) {
+        if(i === json.movieInfoResult.movieInfo.companys.length-1) {
+          reqjson.companys = reqjson.companys.concat(json.movieInfoResult.movieInfo.companys[i].companyPartNm, ':');
+          reqjson.companys = reqjson.companys.concat(json.movieInfoResult.movieInfo.companys[i].companyNm);   
+        }
+        else {
+          reqjson.companys = reqjson.companys.concat(json.movieInfoResult.movieInfo.companys[i].companyPartNm, ':');
+          reqjson.companys = reqjson.companys.concat(json.movieInfoResult.movieInfo.companys[i].companyNm, ',');  
+        }
+        
+    }
+
       if(json.movieInfoResult.movieInfo.audits.length > 1) {
         reqjson.watchGradeNm = json.movieInfoResult.movieInfo.audits[json.movieInfoResult.movieInfo.audits.length-2].watchGradeNm;
       }
